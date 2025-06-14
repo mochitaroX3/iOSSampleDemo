@@ -1,0 +1,27 @@
+//
+//  LocalizedStrings.strings
+//  TaipeiTravelDemo
+//
+//  Created by user on 2025/6/11.
+//
+
+"home.tilte" = "Travel in Taipei";
+"news.section.title" = "Latest News";
+"attraction.section.title" = "Recreational Attractions";
+
+"click.me" = "Click me to see more";
+
+"spot.name" = "Attractions";
+"spot.introduction" = "Introduction";
+"spot.openTime" = "Opening Hours";
+"spot.address" = "Contact Address";
+"spot.tel" = "Contact Number";
+"spot.fax" = "Fax";
+"spot.url" = "Website";
+
+"chose.language.title" = "Please select language";
+"zh_tw.language.displayed.name" = "Traditional Chinese";
+"zh_cn.language.displayed.name" = "Simplified Chinese";
+"en.language.displayed.name" = "English";
+"ja.language.displayed.name" = "Japanese";
+"ko.language.displayed.name" = "Korean";

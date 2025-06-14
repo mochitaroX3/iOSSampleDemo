@@ -1,0 +1,27 @@
+//
+//  LocalizedStrings.strings
+//  TaipeiTravelDemo
+//
+//  Created by user on 2025/6/11.
+//
+
+"home.tilte" = "台北旅行";
+"news.section.title" = "最新ニュース";
+"attraction.section.title" = "レジャー施設";
+
+"click.me" = "クリックして詳細をご覧ください";
+
+"spot.name" = "アトラクション";
+"spot.introduction" = "概要";
+"spot.openTime" = "営業時間";
+"spot.address" = "連絡先住所";
+"spot.tel" = "電話番号";
+"spot.fax" = "FAX番号";
+"spot.url" = "ウェブサイト";
+
+"chose.language.title" = "言語を選択してください";
+"zh_tw.language.displayed.name" = "中国語（繁体字）";
+"zh_cn.language.displayed.name" = "中国語（簡体字）";
+"en.language.displayed.name" = "英語";
+"ja.language.displayed.name" = "日本語";
+"ko.language.displayed.name" = "韓国語";

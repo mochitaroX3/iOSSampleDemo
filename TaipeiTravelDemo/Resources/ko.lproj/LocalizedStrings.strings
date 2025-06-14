@@ -1,0 +1,27 @@
+//
+//  LocalizedStrings.strings
+//  TaipeiTravelDemo
+//
+//  Created by user on 2025/6/11.
+//
+
+"home.tilte" = "타이베이 여행";
+"news.section.title" = "최신 뉴스";
+"attraction.section.title" = "레크리에이션 명소";
+
+"click.me" = "더 보기";
+
+"spot.name" = "명소";
+"spot.introduction" = "소개";
+"spot.openTime" = "영업 시간";
+"spot.address" = "연락처";
+"spot.tel" = "연락처";
+"spot.fax" = "팩스";
+"spot.url" = "웹사이트";
+
+"chose.language.title" = "언어를 선택해 주세요";
+"zh_tw.language.displayed.name" = "영어(zh-Hant)";
+"zh_cn.language.displayed.name" = "중국어 번체(zh-Hans)";
+"en.language.displayed.name" = "중국어 간체(en)";
+"ja.language.displayed.name" = "일본어(ja)";
+"ko.language.displayed.name" = "한국어(ko)";

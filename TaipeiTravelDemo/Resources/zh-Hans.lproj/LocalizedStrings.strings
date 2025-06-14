@@ -1,0 +1,27 @@
+//
+//  LocalizedStrings.strings
+//  TaipeiTravelDemo
+//
+//  Created by user on 2025/6/11.
+//
+
+"home.tilte" = "悠游台北";
+"news.section.title" = "最新消息";
+"attraction.section.title" = "游憩景点";
+
+"click.me" = "点击我查看更多";
+
+"spot.name" = "景点";
+"spot.introduction" = "介绍";
+"spot.openTime" = "营业时间";
+"spot.address" = "联络地址";
+"spot.tel" = "联络电话";
+"spot.fax" = "传真";
+"spot.url" = "网址";
+
+"chose.language.title" = "请选择语言";
+"zh_tw.language.displayed.name" = "繁体中文";
+"zh_cn.language.displayed.name" = "简体中文";
+"en.language.displayed.name" = "英文";
+"ja.language.displayed.name" = "日语";
+"ko.language.displayed.name" = "韩语";
