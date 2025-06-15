@@ -23,6 +23,7 @@ class AttractionsViewController: UIViewController {
     var attraction: Attraction!
     var images: [UIImageView] = []
     var imageWidth: CGFloat = 0
+    var imageHeight: CGFloat = 0
     var timer = Timer()
     var timerInterval: TimeInterval = 5
     var currentImgIndex: Int = 0 {
@@ -52,10 +53,16 @@ class AttractionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleOrientationChange),
+            name: UIDevice.orientationDidChangeNotification,
+            object: nil
+        )
+        
         title = attraction.name
         
         imageContainerView.fill(with: imageScrollView)
-        imageWidth = imageContainerView.frame.size.width
         imageScrollView.delegate = self
     
         detailsContentView.axis = .vertical
@@ -65,10 +72,22 @@ class AttractionsViewController: UIViewController {
         setupRows()
     }
     
+    @objc func handleOrientationChange() {
+        DispatchQueue.main.async {
+            if !self.images.isEmpty {
+                self.imageWidth = self.imageContainerView.bounds.size.width
+                self.imageHeight = self.imageContainerView.bounds.size.height
+                self.addImagesToScrollView()
+            }
+        }
+    }
+    
     func setupViewModel() {
         viewModel.downloadAllImage(srcs: attraction.imageSrcs ?? []) { images in
             if !images.isEmpty {
                 self.images = images
+                self.imageWidth = self.imageContainerView.bounds.size.width
+                self.imageHeight = self.imageContainerView.bounds.size.height
                 self.setPageControl()
                 self.addImagesToScrollView()
                 self.startTimer()
@@ -86,17 +105,17 @@ class AttractionsViewController: UIViewController {
         // add 3 imges to imageView
         let _ = imageScrollView.subviews.map { $0.removeFromSuperview() }
         for i in 0 ..< 3 {
-            let imageView = UIImageView(frame: CGRect(x: (CGFloat(i) * imageWidth), y: 0, width: imageWidth, height: imageScrollView.frame.height))
+            let imageView = UIImageView(frame: CGRect(x: (CGFloat(i) * imageWidth), y: 0, width: imageWidth, height: imageHeight))
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             
             // Imges order: last -> first -> second
-            let index = ((i + images.count - 1) % images.count)
+            let index = ((currentImgIndex + i + images.count - 1) % images.count)
             imageView.image = images[index].image
             imageScrollView.addSubview(imageView)
         }
         // set scrollView ContentSize (顯示範圍)
-        imageScrollView.contentSize = CGSize(width: imageWidth * 3, height: imageScrollView.frame.height)
+        imageScrollView.contentSize = CGSize(width: imageWidth * 3, height: imageHeight)
         
         // 調整 scroll 位置顯示中間
         imageScrollView.contentOffset = CGPoint(x: imageWidth, y: 0)

@@ -113,24 +113,23 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard section < items.count else { return 0 }
         return items[section].count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewsCell.id, for: indexPath) as? NewsCell,
-           let data = items[indexPath.section][indexPath.row] as? News {
-            cell.config(with: data, isLast: indexPath.row == items[indexPath.section].count - 1)
-            return cell
+        if indexPath.section == 0 {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewsCell.id, for: indexPath) as? NewsCell,
+               let data = items[indexPath.section][indexPath.row] as? News {
+                cell.config(with: data, isLast: indexPath.row == items[indexPath.section].count - 1)
+                return cell
+            }
+        } else {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AttractionCell.id, for: indexPath) as? AttractionCell,
+               let data = items[indexPath.section][indexPath.row] as? Attraction {
+                cell.config(with: data)
+                return cell
+            }
         }
-        
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AttractionCell.id, for: indexPath) as? AttractionCell,
-           let data = items[indexPath.section][indexPath.row] as? Attraction {
-            cell.config(with: data)
-            return cell
-        }
-        
         return UICollectionViewCell()
     }
     
